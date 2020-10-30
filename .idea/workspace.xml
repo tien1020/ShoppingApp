@@ -1,25 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c34d9c4-f90a-4c73-a3ca-d968c612f34f" name="Default Changelist" comment="" />
+    <list default="true" id="7c34d9c4-f90a-4c73-a3ca-d968c612f34f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/neiu-cs-412.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/notes-memory.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/notes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/notes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/add_note.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/delete_note.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/edit_note.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/partials/header.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/view_list.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/view_note.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsupport.js" beforeDir="false" afterPath="$PROJECT_DIR$/appsupport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stylesheets/style2.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/default.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/default.hbs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1jRZ2HJ5FDEnikTAEiiuXF0gg48" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Nhung\Documents\NEIU-CS412\neiu-cs-412\views\partials" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -52,34 +104,54 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603768655604</updated>
-      <workItem from="1603768656699" duration="1911000" />
+      <workItem from="1603768656699" duration="3072000" />
+      <workItem from="1603834714627" duration="413000" />
+      <workItem from="1603835141658" duration="13996000" />
+      <workItem from="1604011984520" duration="10020000" />
+      <workItem from="1604086442603" duration="953000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="96" y="7" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603778480836">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="96" y="7" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.720@0.0.1280.720" timestamp="1603778480836" />
-    <state width="1202" height="161" key="GridCell.Tab.0.bottom" timestamp="1603778599483">
+    <state x="421" y="116" key="FileChooserDialogImpl" timestamp="1603835134031">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1202" height="161" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1603778599483" />
-    <state width="1202" height="161" key="GridCell.Tab.0.center" timestamp="1603778599483">
+    <state x="421" y="116" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1603835134031" />
+    <state width="617" height="141" key="GridCell.Tab.0.bottom" timestamp="1604038894029">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1202" height="161" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1603778599483" />
-    <state width="1202" height="161" key="GridCell.Tab.0.left" timestamp="1603778599482">
+    <state width="617" height="141" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1604038894029" />
+    <state width="617" height="141" key="GridCell.Tab.0.center" timestamp="1604038894029">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1202" height="161" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1603778599482" />
-    <state width="1202" height="161" key="GridCell.Tab.0.right" timestamp="1603778599483">
+    <state width="617" height="141" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1604038894029" />
+    <state width="617" height="141" key="GridCell.Tab.0.left" timestamp="1604038894029">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1202" height="161" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1603778599483" />
+    <state width="617" height="141" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1604038894029" />
+    <state width="617" height="141" key="GridCell.Tab.0.right" timestamp="1604038894029">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="617" height="141" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1604038894029" />
     <state x="142" y="6" key="SettingsEditor" timestamp="1603778816282">
       <screen x="0" y="0" width="1280" height="720" />
     </state>

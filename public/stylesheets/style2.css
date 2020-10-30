@@ -1,10 +1,10 @@
 body{
-    margin:50px 0;
-    padding:0;
-    text-align:center;
+    margin:auto;
+    max-width: max-content;
 }
-h1{
+h1, .navbar{
     color: chocolate;
+    text-align: center;
 }
 
 #logo{

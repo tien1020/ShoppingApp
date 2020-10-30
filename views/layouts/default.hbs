@@ -3,11 +3,13 @@
 <head>
     <title>{{title}}</title>
     {{#each styles}}
-        <link rel='stylesheet' href={{this}} />
-    {{/each}}
 
+    {{/each}}
+    <link rel='stylesheet' href="/stylesheets/style.css" />
+    <link rel='stylesheet' href="/stylesheets/style2.css" />
 </head>
 <body>
+{{> header }}
 {{{body}}}
 </body>
 </html>

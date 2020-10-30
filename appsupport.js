@@ -18,7 +18,7 @@ exports.handle404 = function (req,res,next){
 }
 exports.basicErrorHandler = function(err, req, res, next) {
     //Defer to
-    if(res.headersSent())
+    if(res.headersSent)
         return next(err)
 
     // set locals, only providing error in development

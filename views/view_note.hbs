@@ -1,0 +1,9 @@
+<h3>Title: {{ noteTitle }}</h3>
+<p>Content: {{ noteBody }}</p>
+<p>Key: {{ noteKey }}</p>
+<hr/>
+<p>
+    <span><a href="/notes/delete?key={{ noteKey }}">Delete Note</a></span>
+    <span><a href="/notes/edit?key={{ noteKey }}">Edit Note</a></span>
+
+</p>
