@@ -20,28 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c34d9c4-f90a-4c73-a3ca-d968c612f34f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/neiu-cs-412.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/notes-memory.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/notes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/notes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/add_note.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/delete_note.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/edit_note.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/partials/header.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/view_list.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/view_note.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsupport.js" beforeDir="false" afterPath="$PROJECT_DIR$/appsupport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/style2.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/SallieShoppe.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/SallieShoppe.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/stylesheets/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stylesheets/style2.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/stylesheets/style2.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/notes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/add_note.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/add_note.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/delete_note.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/delete_note.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/edit_note.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/edit_note.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layouts/default.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/default.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/header.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/header.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/view_list.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/view_list.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/view_note.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/view_note.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +65,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Nhung\Documents\NEIU-CS412\neiu-cs-412\public\assets" />
       <recent name="C:\Users\Nhung\Documents\NEIU-CS412\neiu-cs-412\views\partials" />
     </key>
   </component>
@@ -108,7 +104,10 @@
       <workItem from="1603834714627" duration="413000" />
       <workItem from="1603835141658" duration="13996000" />
       <workItem from="1604011984520" duration="10020000" />
-      <workItem from="1604086442603" duration="953000" />
+      <workItem from="1604086442603" duration="1542000" />
+      <workItem from="1604203818660" duration="1200000" />
+      <workItem from="1604270884257" duration="12094000" />
+      <workItem from="1604343204646" duration="9606000" />
     </task>
     <servers />
   </component>
@@ -136,25 +135,36 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="421" y="116" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1603835134031" />
-    <state width="617" height="141" key="GridCell.Tab.0.bottom" timestamp="1604038894029">
+    <state width="1259" height="140" key="GridCell.Tab.0.bottom" timestamp="1604376684076">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="617" height="141" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1604038894029" />
-    <state width="617" height="141" key="GridCell.Tab.0.center" timestamp="1604038894029">
+    <state width="1259" height="140" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1604376684076" />
+    <state width="1259" height="140" key="GridCell.Tab.0.center" timestamp="1604376684076">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="617" height="141" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1604038894029" />
-    <state width="617" height="141" key="GridCell.Tab.0.left" timestamp="1604038894029">
+    <state width="1259" height="140" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1604376684076" />
+    <state width="1259" height="140" key="GridCell.Tab.0.left" timestamp="1604376684076">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="617" height="141" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1604038894029" />
-    <state width="617" height="141" key="GridCell.Tab.0.right" timestamp="1604038894029">
+    <state width="1259" height="140" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1604376684076" />
+    <state width="1259" height="140" key="GridCell.Tab.0.right" timestamp="1604376684076">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="617" height="141" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1604038894029" />
+    <state width="1259" height="140" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1604376684076" />
     <state x="142" y="6" key="SettingsEditor" timestamp="1603778816282">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="142" y="6" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1603778816282" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app.js</url>
+          <line>34</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

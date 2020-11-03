@@ -8,6 +8,7 @@ router.get('/add',async (req, res, next)=>{
             isCreate: true,
             title: 'Add a Note',
             noteKey: await notesStore.count(),
+            isAddNoteActive: 'active'
 
         })
     } catch(err) {
@@ -36,6 +37,7 @@ router.get('/view', async(req, res, next) => {
             noteTitle: note.title,
             noteKey: note.key,
             noteBody: note.body
+
 
         })
     } catch(err){
@@ -98,6 +100,7 @@ router.get('/viewList', async function(req, res, next) {
         res.render('view_list', {
             title: 'Notes List',
             noteList: extractNotesToLiteral(allNotes),
+            isViewListActive: 'active'
         })
     } catch(err){
         next(err)

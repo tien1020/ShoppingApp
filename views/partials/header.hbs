@@ -1,11 +1,26 @@
 <header>
-    <h1>{{ title }}</h1>
-    <div class = "navbar">
-        <p>
-            <a href="/">Home</a> | <a href="/notes/add">Add Note</a> | <a href="/notes/viewList">View All</a>
+<!--    <h1>{{ title }}</h1>-->
+<!--    <nav class="nav nav-pills justify-content-center">-->
+<!--        <a class="nav-item nav-link {{isHomeActive}}" href="/">Home</a>-->
+<!--        <a class="nav-item nav-link {{isAddNoteActive}}" href="/notes/add">Add Note</a>-->
+<!--        <a class="nav-item nav-link {{isViewListActive}}" href="/notes/viewList">View All</a>-->
+<!--    </nav>-->
 
-        </p>
-        <img src="/images/SallieShoppe.png" id="logo" alt="logo" />
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark border">
+        <a class="navbar-brand" href="/"><i data-feather="home"></i></a>
+        <button class="navbar-toggler" type="button"
+            data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle Navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <span class="navbar-text col text-left">{{title}}</span>
+            <a class="nav-item nav-link btn btn-outline-light col-auto mr-lg-2" href="/notes/add">Add Note</a>
+            <a class="nav-item nav-link btn btn-outline-light col-auto" href="/notes/viewList">View All</a>
+
+        </div>
+    </nav>
+
 </header>

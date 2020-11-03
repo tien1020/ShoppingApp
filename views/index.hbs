@@ -1,6 +1,14 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-5 text-center alert alert-danger" role="alert">
+            Welcome to Sallie Shoppe!
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-5 text-center">
+            <a type="button" class="btn col-auto btn-primary" href="/notes/add"><i data-feather="plus"></i> Add Note</a>
+            <a type="button" class="btn col-auto btn-secondary" href="/notes/viewList"><i data-feather="eye"></i> View All</a>
+        </div>
+    </div>
 
-<ul>
-    {{#each noteList}}
-        <li>{{ key }}: <a href="/notes/view?key={{ key }}">{{ title }}</a></li>
-    {{/each}}
-</ul>
+</div>
