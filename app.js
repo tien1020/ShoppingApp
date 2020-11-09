@@ -5,13 +5,13 @@ const cookieParser = require('cookie-parser');
 const http =require('http')
 const hbs = require('express-handlebars')
 
-const InMemoryNotesStore = require('./models/notes-memory').InMemoryNotesStore
-let notesStore = new InMemoryNotesStore()
-exports.notesStore = notesStore
+const MongooseSalesStore = require('./models/sales-mongoose').MongooseSalesStore
+let salesStore = new MongooseSalesStore()
+exports.salesStore = salesStore
 
 const appsupport=require('./appsupport')
 const indexRouter = require('./routes/index');  //when exported is already handled
-const notesRouter = require('./routes/notes');
+const salesRouter = require('./routes/sales');
 
 const app =express()
 exports.app=app
@@ -41,7 +41,7 @@ app.use('/assets/vendor/popper.js', express.static(path.join(__dirname,'node_mod
 app.use('/assets/vendor/feather-icons', express.static(path.join(__dirname, 'node_modules', 'feather-icons', 'dist')))
 //router function list
 app.use('/', indexRouter);
-app.use('/notes', notesRouter);
+app.use('/sales', salesRouter);
 
 //Error Handlers
 app.use(appsupport.basicErrorHandler)                           // this is a call back because no rounded brackets for basicErrorHandler

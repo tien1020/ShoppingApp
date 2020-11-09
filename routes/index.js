@@ -7,7 +7,6 @@ router.get('/', async function(req, res, next) {
             title: 'Sallie Shoppe',
             name: 'SallieShoppe',
             layout: 'default',
-            styles: ['/stylesheets/style.css', '/stylesheets/style2.css'],
             isHomeActive: 'active'
         })
     }catch(err){

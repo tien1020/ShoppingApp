@@ -20,23 +20,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c34d9c4-f90a-4c73-a3ca-d968c612f34f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/models/sales-mongoose.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/sales.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/sales.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/notes-memory.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/notes.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/SallieShoppe.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/SallieShoppe.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/stylesheets/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/style2.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/stylesheets/style2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/stylesheets/style2.css" beforeDir="false" afterPath="$PROJECT_DIR$/models/sales-memory.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/notes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/add_note.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/add_note.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/delete_note.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/delete_note.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/edit_note.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/edit_note.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/notes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/add_note.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/add_sale.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/delete_note.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/delete_sale.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/edit_note.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/edit_sale.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/error.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/error.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layouts/default.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/default.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/partials/header.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/header.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/view_list.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/view_list.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/view_note.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/view_note.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/view_note.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/view_sale.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +92,9 @@
         <script value="start-watch" />
       </scripts>
       <node-interpreter value="project" />
-      <envs />
+      <envs>
+        <env name="DB_URL" value="mongodb+srv://admin:NVgAqoz6qkNIWBJ8@sallieshoppe.fx0bm.mongodb.net/sallie_shoppe?retryWrites=true&amp;w=majority " />
+      </envs>
       <method v="2" />
     </configuration>
   </component>
@@ -107,7 +113,13 @@
       <workItem from="1604086442603" duration="1542000" />
       <workItem from="1604203818660" duration="1200000" />
       <workItem from="1604270884257" duration="12094000" />
-      <workItem from="1604343204646" duration="9606000" />
+      <workItem from="1604343204646" duration="10158000" />
+      <workItem from="1604431094870" duration="10947000" />
+      <workItem from="1604520440623" duration="18793000" />
+      <workItem from="1604869393524" duration="7864000" />
+      <workItem from="1604892204949" duration="1192000" />
+      <workItem from="1604893787437" duration="9482000" />
+      <workItem from="1604950178879" duration="1633000" />
     </task>
     <servers />
   </component>
@@ -127,34 +139,42 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="96" y="7" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603778480836">
+    <state x="414" y="19" width="838" height="689" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604886728847">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="96" y="7" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.720@0.0.1280.720" timestamp="1603778480836" />
-    <state x="421" y="116" key="FileChooserDialogImpl" timestamp="1603835134031">
+    <state x="414" y="19" width="838" height="689" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.720@0.0.1280.720" timestamp="1604886728847" />
+    <state x="421" y="116" key="FileChooserDialogImpl" timestamp="1604893648616">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="421" y="116" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1603835134031" />
-    <state width="1259" height="140" key="GridCell.Tab.0.bottom" timestamp="1604376684076">
+    <state x="421" y="116" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1604893648616" />
+    <state width="1259" height="154" key="GridCell.Tab.0.bottom" timestamp="1604904940218">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1259" height="140" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1604376684076" />
-    <state width="1259" height="140" key="GridCell.Tab.0.center" timestamp="1604376684076">
+    <state width="1259" height="154" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1604904940218" />
+    <state width="1259" height="154" key="GridCell.Tab.0.center" timestamp="1604904940218">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1259" height="140" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1604376684076" />
-    <state width="1259" height="140" key="GridCell.Tab.0.left" timestamp="1604376684076">
+    <state width="1259" height="154" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1604904940218" />
+    <state width="1259" height="154" key="GridCell.Tab.0.left" timestamp="1604904940218">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1259" height="140" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1604376684076" />
-    <state width="1259" height="140" key="GridCell.Tab.0.right" timestamp="1604376684076">
+    <state width="1259" height="154" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1604904940218" />
+    <state width="1259" height="154" key="GridCell.Tab.0.right" timestamp="1604904940218">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1259" height="140" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1604376684076" />
+    <state width="1259" height="154" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1604904940218" />
+    <state x="407" y="63" key="RollbackChangesDialog" timestamp="1604882629258">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="407" y="63" key="RollbackChangesDialog/0.0.1280.720@0.0.1280.720" timestamp="1604882629258" />
     <state x="142" y="6" key="SettingsEditor" timestamp="1603778816282">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="142" y="6" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1603778816282" />
+    <state x="303" y="41" width="672" height="678" key="search.everywhere.popup" timestamp="1604545345081">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="303" y="41" width="672" height="678" key="search.everywhere.popup/0.0.1280.720@0.0.1280.720" timestamp="1604545345081" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
