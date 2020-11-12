@@ -6,9 +6,9 @@ router.get('/add',async (req, res, next)=>{
     try {
         res.render('add_sale', {
             isCreate: true,
-            title: 'Add an item',
+            title: 'Add an Item',
             saleKey: await salesStore.count(),
-            //isHomeActive: "",
+            isHomeActive: "",
             isAddSaleActive: 'active'
 
         })

@@ -2,37 +2,37 @@ let Sale = require('./sales').Sale
 let AbstractSalesStore = require('./sales').AbstractSalesStore
 
 
-const mongoose = require('mongoose')
-const autoIncrement = require('mongoose-auto-increment');
-
-const connectDB = async () => {
-    try {
-        await mongoose.connect(process.env.DB_URL, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        })
-    } catch(err){
-        console.log(err)
-    }
-}
+// const mongoose = require('mongoose')
+// //const autoIncrement = require('mongoose-auto-increment');
+//
+// const connectDB = async () => {
+//     try {
+//         await mongoose.connect(process.env.DB_URL, {
+//             useNewUrlParser: true,
+//             useUnifiedTopology: true
+//         })
+//     } catch(err){
+//         console.log(err)
+//     }
+// }
 
 exports.MongooseSalesStore = class MongooseSalesStore extends AbstractSalesStore {
 
     async update(key, title, price, body) {
-        await connectDB()
+        // await connectDB()
         let sale = await Sale.findOneAndUpdate({key: key},{
             title: title,
             price: price,
             body: body
         })
-        await mongoose.disconnect()
+        //await mongoose.disconnect()
         return sale
 
     }
 
     async create(key, title, price, body){
         // let getNext = await this.getNext()
-        await connectDB()
+        //await connectDB()
         let count = await Sale.countDocuments({})
         //let count = getNext({})
         let sale = new Sale({
@@ -42,30 +42,30 @@ exports.MongooseSalesStore = class MongooseSalesStore extends AbstractSalesStore
             body: body
         })
         await sale.save()
-        await mongoose.disconnect()
+        //await mongoose.disconnect()
         return sale
 
     }
 
     async read(key){
-        await connectDB()
+        //await connectDB()
         const sale = await Sale.findOne({ key: key})
-        await mongoose.disconnect()
+        //await mongoose.disconnect()
         return sale
     }
 
     async destroy(key){
-        await connectDB()
+        //await connectDB()
         const sale = await Sale.deleteOne({ key: key})
-        await mongoose.disconnect()
+        //await mongoose.disconnect()
         return sale
     }
 
 
     async findAllSales() {
-        await connectDB()
+        //await connectDB()
         const sales = await Sale.find({})
-        await mongoose.disconnect()
+       // await mongoose.disconnect()
         return sales.map(sale => {
             return {
                 key: sale.key,
@@ -75,9 +75,9 @@ exports.MongooseSalesStore = class MongooseSalesStore extends AbstractSalesStore
     }
 
     async count(){
-        await connectDB()
+        //await connectDB()
         let count = await Sale.countDocuments({})
-        await mongoose.disconnect()
+        //await mongoose.disconnect()
         return count
 
 
