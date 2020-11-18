@@ -40,6 +40,7 @@ exports.userController ={
         //await connectDB()
         try {
             let user = await User.findOne({email: req.body.email})
+            await mongoose.disconnect()
             if (user && await user.passwordComparison(req.body.password)) {
                 req.flash('success', `${user.fullName} logged in successfully`)
                 res.redirect('/')
@@ -48,10 +49,11 @@ exports.userController ={
                 res.redirect('/user/login')
             }
         }catch(error){
-            req.flash('error', 'Your email or password is incorrect')
+            req.flash('error', 'Your email or password is incorrect. Please try again')
                 res.redirect('/user/login')
             }
         }
+
 
 }
 
@@ -66,7 +68,7 @@ const getUserParams = body => {
     }
 }
 
-exports.userValidations = [
+exports.registerValidations = [
     body('first')
         .notEmpty().withMessage('First name is required')
         .isLength({min: 2}).withMessage('First name must be at least 2 characters'),

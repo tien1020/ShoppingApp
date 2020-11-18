@@ -20,59 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c34d9c4-f90a-4c73-a3ca-d968c612f34f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/user-controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/partials/user_messages.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/users/login.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/users/register.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/sales-memory.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/sales-mongoose.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/sales-mongoose.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/sales.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/sales.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/HISTORY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/aggregation_cursor.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/aggregation_cursor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/change_stream.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/change_stream.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/cmap/connection.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/cmap/connection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/cmap/connection_pool.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/cmap/connection_pool.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/core/auth/gssapi.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/core/auth/gssapi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/core/auth/x509.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/core/auth/x509.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/core/connection/connect.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/core/connection/connect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/core/connection/connection.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/core/connection/connection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/core/connection/pool.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/core/connection/pool.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/core/sdam/topology_description.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/core/sdam/topology_description.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/core/topologies/replset.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/core/topologies/replset.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/core/topologies/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/core/topologies/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/core/uri_parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/core/uri_parser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/gridfs/grid_store.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/gridfs/grid_store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongo_client.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/mongo_client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/operations/add_user.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/operations/add_user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/operations/admin_ops.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/operations/admin_ops.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/operations/command_v2.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/operations/command_v2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/operations/connect.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/operations/connect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/operations/validate_collection.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/operations/validate_collection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/topologies/mongos.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/topologies/mongos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/topologies/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/topologies/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/lib/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongodb/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongodb/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongoose/History.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongoose/History.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongoose/dist/browser.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongoose/dist/browser.umd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongoose/lib/collection.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongoose/lib/collection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongoose/lib/connection.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongoose/lib/connection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongoose/lib/document.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongoose/lib/document.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongoose/lib/error/serverSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongoose/lib/error/serverSelection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongoose/lib/helpers/clone.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongoose/lib/helpers/clone.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongoose/lib/helpers/document/compile.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongoose/lib/helpers/document/compile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongoose/lib/model.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongoose/lib/model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongoose/lib/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongoose/lib/query.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mongoose/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongoose/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/sales.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/sales.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/header.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/header.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/view_sale.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/view_sale.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user-controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +50,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CS412/hw10/neiu-cs-412" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -166,6 +115,7 @@
       <workItem from="1605130347419" duration="49000" />
       <workItem from="1605138190033" duration="7696000" />
       <workItem from="1605147083254" duration="41000" />
+      <workItem from="1605657685637" duration="304000" />
     </task>
     <servers />
   </component>
