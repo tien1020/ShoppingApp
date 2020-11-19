@@ -12,7 +12,7 @@ router.post('/register', registerValidations , async(req,res,next)=>{
     await userController.create(req, res, next)
 })
 
-router.get('login', async(req, res, next)=>{
+router.get('/login', async(req, res, next)=>{
     res.render('users/login',{
         title: 'Login'
     })

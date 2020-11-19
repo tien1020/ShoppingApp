@@ -18,12 +18,8 @@ mongoose.connect(process.env.DB_URL, {
 })
 
 
-// const MongooseSalesStore = require('./models/sales-mongoose').MongooseSalesStore
-// let salesStore = new MongooseSalesStore()
-// exports.salesStore = salesStore
-
 const appsupport=require('./appsupport')
-const indexRouter = require('./routes/index');  //when exported is already handled
+const indexRouter = require('./routes/index');
 const salesRouter = require('./routes/sales');
 const usersRouter = require('./routes/users')
 

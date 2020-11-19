@@ -7,6 +7,8 @@
                 <br>
             </div>
         </div>
+        <input type="hidden" name="objectId" value="{{objectId}}"/>
+
         <div class="row justify-content-center">
             <div class="col text-center font-weight-bold">
                 Title: {{saleTitle}} - Price: {{salePrice}}
@@ -14,8 +16,8 @@
         </div>
         <div class="row justify-content-center">
             <div class="col text-center">
-                <span><a class="btn btn-danger" role="button" aria-pressed="true" href="/sales/destroy?key={{ saleKey }}"><i data-feather="trash-2"></i></a></span>
-                <span><a class="btn btn-info" role="button" aria-pressed="true" href="/sales/viewList"><i data-feather="x"></i></a></span>
+                <span><a class="btn btn-danger" role="button" aria-pressed="true" href="/sales/destroy?id={{ objectId }}""><i data-feather="trash-2"></i></a></span>
+                <span><a class="btn btn-info" role="button" aria-pressed="true" href="/sales/viewAll"><i data-feather="x"></i></a></span>
             </div>
         </div>
     </div>

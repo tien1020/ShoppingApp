@@ -1,28 +1,15 @@
-exports.AbstractSalesStore = class AbstractSalesStore {
-    async close() { }
-    async update(key, title, price, body){ }
-    async create(key, title, price, body){ }
-    async read(key){ }
-    async destroy(key){ }
-    async keyList(){ }
-    async count(){ }
-}
-
 const mongoose = require('mongoose')
+require('mongoose-double')(mongoose)
 
+//const SchemaTypes = mongoose.Schema
 const SaleSchema = new mongoose.Schema({
-    key: {
-        type: Number,
-        required: true,
-        unique: true,
-    },
     title: {
         type: String,
         required: [true, 'Title is required'],
         minlength: [3, 'Minimum Title length is 3 characters']
     },
     price: {
-        type: Number,
+        type: String,
         required: [true, 'Price is required']
 
     },
@@ -32,5 +19,6 @@ const SaleSchema = new mongoose.Schema({
     }
 })
 
+SaleSchema.set('toObject', {getters: true, virtuals: true})
 
 exports.Sale = mongoose.model('sales', SaleSchema)
