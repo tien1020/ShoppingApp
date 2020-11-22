@@ -6,8 +6,10 @@ const hbs = require('express-handlebars')
 const session = require('express-session')
 const MemoryStore = require('memorystore')(session)
 const connectFlash = require('connect-flash')
-
 const mongoose = require('mongoose')
+const passport = require('passport')
+const { User } = require('./models/user')
+
 mongoose.connect(process.env.DB_URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -54,6 +56,11 @@ app.use(session({
 }))
 app.use(connectFlash())
 
+app.use(passport.initialize())
+app.use(passport.session())
+passport.use(User.createStrategy())
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
 
 app.use(express.static(path.join(__dirname, 'public')));  ///handles static assets
 app.use('/assets/vendor/bootstrap', express.static(path.join(__dirname, 'node_modules','bootstrap','dist')))
@@ -62,6 +69,8 @@ app.use('/assets/vendor/popper.js', express.static(path.join(__dirname,'node_mod
 app.use('/assets/vendor/feather-icons', express.static(path.join(__dirname, 'node_modules', 'feather-icons', 'dist')))
 
 app.use((req, res, next)=>{
+    res.locals.loggedIn = req.isAuthenticated()
+    res.locals.currentUser = req.user ? req.user.toObject(): undefined
     res.locals.flashMessages = req.flash()
     next()
 })

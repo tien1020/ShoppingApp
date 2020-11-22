@@ -1,5 +1,6 @@
 let User = require('../models/user').User
 const {body, validationResult} = require('express-validator')
+const passport = require('passport')
 
 exports.userController = {
     create: async (req, res, next) => {
@@ -10,37 +11,32 @@ exports.userController = {
         } else {
             try {
                 let userParams = getUserParams(req.body)
-                let user = await User.create(userParams)
+                let newUser = new User(userParams)
+                let user = await User.register(newUser, req.body.password)
                 req.flash('success', `${user.fullName}'s account created successfully`)
                 res.redirect('/')
             } catch (error) {
                 console.log(`Error saving user: ${error.message}`)
-                req.flash('error', `Failed to create user account because ${error.message}`)
-                res.redirect('/users/register')
+                req.flash('error', `Failed to create user account. Invalid email.`)
+                res.redirect('back')
             }
         }
     },
     authenticate: async (req, res, next) => {
-        const errors = validationResult(req)
-        if(!errors.isEmpty()){
-            req.flash('error', errors.array().map(e => e.msg + '</br>').join(''))
-            res.redirect('/users/login')
-        }else {
-            try {
-                let user = await User.findOne({email: req.body.email})
-                if (user && await user.passwordComparison(req.body.password)) {
-                    req.flash('success', `${user.fullName} logged in successfully`)
-                    res.redirect('/')
-                } else {
-
-                    req.flash('error', 'Your email or password is incorrect. Please try again')
-                    res.redirect('/users/login')
-                }
-            } catch (error) {
-                req.flash('error', 'Your email or password is incorrect. Please try again')
-                res.redirect('/users/login')
+        await passport.authenticate('local', function (err, user, info){
+            if(err)
+                return next(err)
+            if(!user){
+                req.flash('error', 'Failed to login')
+                return res.redirect('back')
             }
-        }
+            req.logIn(user, function(err){
+                if (err)
+                    return next(err)
+                req.flash('success', `${user.fullName} logged in!`)
+                return res.redirect('/')
+            })
+        })(req, res, next);
     }
 }
 

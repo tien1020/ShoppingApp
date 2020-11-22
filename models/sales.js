@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
-require('mongoose-double')(mongoose)
 
-//const SchemaTypes = mongoose.Schema
 const SaleSchema = new mongoose.Schema({
     title: {
         type: String,

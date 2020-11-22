@@ -5,7 +5,7 @@ router.get('/', async function(req, res, next) {
     try {
         res.render('index', {
             title: 'Sallie Shoppe',
-            name: 'SallieShoppe',
+            name: 'Sallie Shoppe',
             layout: 'default',
             isHomeActive: 'active'
         })
