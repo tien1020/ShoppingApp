@@ -18,7 +18,8 @@
             {{else}}
             <a class="nav-item nav-link btn btn-outline-light col-auto mr-lg-2" href="/sales/add">Create Listing</a>
             <a class="nav-item nav-link btn btn-outline-light col-auto mr-lg-2" href="/sales/viewAll">View All</a>
-            <span class="col-auto text-white">{{currentUser.fullName}}</span>
+                <a class="nav-item nav-link btn btn-outline-light col-auto mr-lg-2" href="/users/logout">Logout</a>
+                <span class="col-auto text-white">{{currentUser.fullName}}</span>
             {{/unless}}
         </div>
     </nav>

@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+const BigNumber       = require('bignumber.js')
+const BigNumberSchema = require('mongoose-bignumber')
 
 const SaleSchema = new mongoose.Schema({
     title: {
@@ -7,7 +9,7 @@ const SaleSchema = new mongoose.Schema({
         minlength: [3, 'Minimum Title length is 3 characters']
     },
     price: {
-        type: String,
+        type: Number,
         required: [true, 'Price is required']
 
     },

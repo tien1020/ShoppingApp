@@ -21,18 +21,16 @@
   <component name="ChangeListManager">
     <list default="true" id="7c34d9c4-f90a-4c73-a3ca-d968c612f34f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/sale-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/sale-controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/user-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user-controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/sales.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/sales.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/partials/header.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/header.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/sales/delete_sale.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sales/delete_sale.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/sales/view_sale.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sales/view_sale.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/view_list.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/view_list.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sales/add_sale.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sales/add_sale.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sales/edit_sale.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sales/edit_sale.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +59,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -133,7 +131,11 @@
       <workItem from="1605657685637" duration="23262000" />
       <workItem from="1605731645778" duration="12233000" />
       <workItem from="1605901295784" duration="1091000" />
-      <workItem from="1605997543651" duration="11834000" />
+      <workItem from="1605997543651" duration="17600000" />
+      <workItem from="1606081863174" duration="468000" />
+      <workItem from="1606082711242" duration="602000" />
+      <workItem from="1606282226507" duration="999000" />
+      <workItem from="1606286689721" duration="303000" />
     </task>
     <servers />
   </component>
@@ -161,26 +163,26 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="690" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.720@0.0.1280.720" timestamp="1605129067460" />
-    <state x="712" y="83" key="FileChooserDialogImpl" timestamp="1605658744687">
+    <state x="712" y="83" key="FileChooserDialogImpl" timestamp="1606286551448">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="712" y="83" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1605658744687" />
-    <state width="617" height="151" key="GridCell.Tab.0.bottom" timestamp="1606020952123">
+    <state x="712" y="83" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1606286551448" />
+    <state width="1259" height="151" key="GridCell.Tab.0.bottom" timestamp="1606082334530">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="617" height="151" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1606020952123" />
-    <state width="617" height="151" key="GridCell.Tab.0.center" timestamp="1606020952123">
+    <state width="1259" height="151" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1606082334530" />
+    <state width="1259" height="151" key="GridCell.Tab.0.center" timestamp="1606082334530">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="617" height="151" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1606020952123" />
-    <state width="617" height="151" key="GridCell.Tab.0.left" timestamp="1606020952122">
+    <state width="1259" height="151" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1606082334530" />
+    <state width="1259" height="151" key="GridCell.Tab.0.left" timestamp="1606082334530">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="617" height="151" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1606020952122" />
-    <state width="617" height="151" key="GridCell.Tab.0.right" timestamp="1606020952123">
+    <state width="1259" height="151" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1606082334530" />
+    <state width="1259" height="151" key="GridCell.Tab.0.right" timestamp="1606082334530">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="617" height="151" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1606020952123" />
+    <state width="1259" height="151" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1606082334530" />
     <state width="1259" height="242" key="GridCell.Tab.1.bottom" timestamp="1605756916887">
       <screen x="0" y="0" width="1280" height="720" />
     </state>

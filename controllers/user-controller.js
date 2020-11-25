@@ -60,6 +60,6 @@ exports.registerValidations = [
         .isLength({min: 2}).withMessage('Last name must be at least 2 characters'),
     body('password')
         .notEmpty().withMessage('Password is required')
-        .isLength({min: 2}).withMessage('Password must be at least 2 characters'),
+        .isLength({min: 6}).withMessage('Password must be at least 6 characters'),
     body('email').isEmail().normalizeEmail().withMessage('Email is invalid')
 ]

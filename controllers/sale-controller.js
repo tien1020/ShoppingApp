@@ -1,9 +1,13 @@
 let Sale = require('../models/sales').Sale
 let { User } = require('../models/user')
+const {body, validationResult} = require('express-validator')
+
+
 exports.saleController = {
 
     add: async (req, res, next) => {
         if(req.isAuthenticated()) {
+
             try {
                 res.render('sales/add_sale', {
                     isCreate: true,
@@ -20,19 +24,20 @@ exports.saleController = {
         }
     },
     save: async (req, res, next)=>{
-        try{
-            let sale
-            if(req.body.saveMethod === 'create'){
-                sale = await create(req.body.title, req.body.price, req.body.body)
-                req.user.sales.push(sale.id.trim())
-                req.user = await User.findByIdAndUpdate({ _id: req.user.id.trim() }, { sales: req.user.sales }, { new: true })
 
-            } else
-                sale = await update(req.body.objectId, req.body.title, req.body.price, req.body.body)
-            res.redirect(`/sales/view?id=${sale.id}`)
-        }catch(error){
-            next(error)
-        }
+            try {
+                let sale
+                if (req.body.saveMethod === 'create') {
+                    sale = await create(req.body.title, req.body.price, req.body.body)
+                    req.user.sales.push(sale.id.trim())
+                    req.user = await User.findByIdAndUpdate({_id: req.user.id.trim()}, {sales: req.user.sales}, {new: true})
+
+                } else
+                    sale = await update(req.body.objectId, req.body.title, req.body.price, req.body.body)
+                res.redirect(`/sales/view?id=${sale.id}`)
+            } catch (error) {
+                next(error)
+            }
     },
 
     view: async (req, res, next) => {
@@ -162,4 +167,6 @@ update = async (id, title, price, body)=>{
     let sale = await Sale.findByIdAndUpdate({ _id: id },{title: title, price: price, body: body}, {new: true})
     return sale;
 }
+
+
 

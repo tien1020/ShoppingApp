@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "bignumber.js": "^9.0.1",
     "bootstrap": "^4.5.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.4",
@@ -23,6 +24,7 @@
     "memorystore": "^1.6.4",
     "mongoose": "^5.10.13",
     "mongoose-auto-increment": "^5.0.1",
+    "mongoose-bignumber": "^1.2.0",
     "mongoose-double": "0.0.1",
     "mongoose-sequence": "^5.3.0",
     "morgan": "~1.9.1",
