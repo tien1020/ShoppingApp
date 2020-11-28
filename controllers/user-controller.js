@@ -23,20 +23,38 @@ exports.userController = {
         }
     },
     authenticate: async (req, res, next) => {
-        await passport.authenticate('local', function (err, user, info){
-            if(err)
+        await passport.authenticate('local', function (err, user, info) {
+            if (err)
                 return next(err)
-            if(!user){
+            if (!user) {
                 req.flash('error', 'Failed to login')
                 return res.redirect('back')
             }
-            req.logIn(user, function(err){
+            req.logIn(user, function (err) {
                 if (err)
                     return next(err)
                 req.flash('success', `${user.fullName} logged in!`)
                 return res.redirect('/')
             })
         })(req, res, next);
+    },
+
+    view: async (req, res, next) => {
+        try {
+            const user = await User.findOne({_id: req.query.id.trim()})
+            res.render('sales/view_user', {
+                title: "Profile",
+                objectId: req.query.id,
+                first: user.name.first,
+                last: user.name.last,
+                email: user.email,
+                password: user.password
+            })
+
+        }catch (error) {
+            console.log(`Error saving user: ${error.message}`)
+            res.redirect('back')
+        }
     }
 }
 

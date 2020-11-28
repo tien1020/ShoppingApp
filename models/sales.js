@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
-const BigNumber       = require('bignumber.js')
-const BigNumberSchema = require('mongoose-bignumber')
+const Schema = mongoose.Schema
+const SchemaTypes = mongoose.SchemaTypes
 
 const SaleSchema = new mongoose.Schema({
     title: {
@@ -16,8 +16,13 @@ const SaleSchema = new mongoose.Schema({
     body: {
         type: String,
         required: [true, 'Description is required']
+    },
+    userId: {
+        type: String,
+        required: [true, 'User is required']
     }
 })
+
 
 SaleSchema.set('toObject', {getters: true, virtuals: true})
 

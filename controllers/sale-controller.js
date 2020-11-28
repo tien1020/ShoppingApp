@@ -1,7 +1,5 @@
 let Sale = require('../models/sales').Sale
 let { User } = require('../models/user')
-const {body, validationResult} = require('express-validator')
-
 
 exports.saleController = {
 
@@ -28,10 +26,9 @@ exports.saleController = {
             try {
                 let sale
                 if (req.body.saveMethod === 'create') {
-                    sale = await create(req.body.title, req.body.price, req.body.body)
+                    sale = await create(req.body.title, req.body.price, req.body.body, req.user.id)
                     req.user.sales.push(sale.id.trim())
-                    req.user = await User.findByIdAndUpdate({_id: req.user.id.trim()}, {sales: req.user.sales}, {new: true})
-
+                    req.user = await User.findByIdAndUpdate({_id: req.user.id.trim()},  {sales: req.user.sales}, {new: true})
                 } else
                     sale = await update(req.body.objectId, req.body.title, req.body.price, req.body.body)
                 res.redirect(`/sales/view?id=${sale.id}`)
@@ -44,12 +41,15 @@ exports.saleController = {
         if(req.isAuthenticated()) {
             try{
                 const sale = await Sale.findOne({_id: req.query.id.trim()})
+                const saleCreator = await User.findOne({_id: sale.userId})
                 res.render('sales/view_sale', {
                     title: "Listing Product",
                     objectId: req.query.id,
                     saleTitle: sale.title,
                     salePrice: sale.price,
                     saleBody: sale.body,
+//                    saleList: allSales,
+                    saleCreatorName : saleCreator.fullName
                 })
 
             } catch (error) {
@@ -134,7 +134,9 @@ exports.saleController = {
                 let allSales = sales.map(sale => {
                     return {
                         objectId: sale.id,
-                        title: sale.title
+                        title: sale.title,
+                        price: sale.price,
+                        // name: req.user.fullName
                     }
                 })
                 res.render('sales/view_list', {
@@ -149,20 +151,107 @@ exports.saleController = {
             req.flash(`error`,'Please log in to access Listings')
             res.redirect('/users/login')
         }
-    }
+    },
+
+    products: async (req, res, next) => {
+        try {
+            let sales = await Sale.find({})
+            let allSales = sales.map(sale => {
+                return {
+                    objectId: sale.id,
+                    title: sale.title,
+                    price: sale.price,
+                }
+            })
+            res.render('sales/products', {
+                title: 'Shop',
+                saleList: allSales,
+                isViewListActive: 'active'
+            })
+        } catch (error) {
+            next(error)
+        }
+    },
+
+    view_product: async (req, res, next) => {
+        try {
+            const sale = await Sale.findOne({_id: req.query.id.trim()})
+            const saleCreator = await User.findOne({_id: sale.userId})
+            res.render('sales/view_product', {
+                title: "Product",
+                objectId: req.query.id,
+                saleTitle: sale.title,
+                salePrice: sale.price,
+                saleBody: sale.body,
+                saleCreatorName: saleCreator.fullName
+            })
+
+        } catch (error) {
+            next(error)
+        }
+    },
+
+    save_cart: async (req, res, next)=>{
+        try {
+            const sale = await Sale.findOne({_id: req.query.id.trim()})
+            req.user = await User.findByIdAndUpdate({_id: req.user.id.trim()},  {sales: req.user.sales}, {new: true})
+
+            res.redirect(`/sales/cart`)
+        } catch (error) {
+            next(error)
+        }
+    },
+
+    cart: async (req, res, next) => {
+        if(req.isAuthenticated()) {
+            try {
+                let saleIds = req.user.sales
+                let salePromises = saleIds.map(objectId => Sale.findOne({ _id: objectId }))
+                let sales = await Promise.all(salePromises)
+                let allSales = sales.map(sale => {
+                    return {
+                        objectId: sale.id,
+                        title: sale.title,
+                        price: sale.price,
+                    }
+                })
+                res.render('sales/cart', {
+                    title: 'Cart',
+                    saleList: allSales,
+                    isViewListActive: 'active'
+                })
+            }catch(error){
+                next(error)
+            }
+        } else {
+            req.flash(`error`,'Please log in to access Listings')
+            res.redirect('/users/login')
+        }
+    },
+
+    save_cart: async (req, res, next)=>{
+        try {
+            const sale = await Sale.findOne({_id: req.query.id.trim()})
+            res.redirect(`/sales/cart`)
+        } catch (error) {
+            next(error)
+        }
+    },
+
 }
 
-create = async (title, price, body) =>{
+create = async (title, price, body, userId) =>{
     let sale = new Sale({
         title: title,
         price: price,
-        body: body
+        body: body,
+        userId : userId
     })
     sale = await sale.save()
     return sale;
 }
 
-update = async (id, title, price, body)=>{
+update = async (id, name, title, price, body)=>{
     id = id.trim()
     let sale = await Sale.findByIdAndUpdate({ _id: id },{title: title, price: price, body: body}, {new: true})
     return sale;

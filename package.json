@@ -7,6 +7,7 @@
     "start-watch": "nodemon ./app.js"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "bcrypt": "^5.0.0",
     "bignumber.js": "^9.0.1",
     "bootstrap": "^4.5.3",
@@ -31,6 +32,7 @@
     "nodemon": "^2.0.6",
     "passport": "^0.4.1",
     "passport-local-mongoose": "^6.0.1",
-    "popper.js": "^1.16.1"
+    "popper.js": "^1.16.1",
+    "request": "^2.88.2"
   }
 }
