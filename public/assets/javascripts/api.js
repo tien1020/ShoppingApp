@@ -1,18 +1,10 @@
-const axios = require('axios');
+const moment = require('moment');
 
+function orderFunction() {
 
-exports.getActivity = function(){
-    axios.get('https://www.boredapi.com/api/activity/').then(response => {
-        console.log("Activity: "+response.data.activity);
-        const span = document.createElement("SPAN");
-        const text = document.createTextNode("Your activity: " + response.data.activity);
-        span.appendChild(text);
-        document.getElementById('activity').appendChild(span);
-
-    }).catch(err =>{
-        console.error('Error: ', err);
-        document.getElementById("orderPlaced").innerText = 'Can not find activity';
-    })
-
-
+    document.getElementById("orderPlaced").innerHTML = "Your order was placed at " + moment().format('LLLL');
+    const heading = document.createElement("h1");
+    const heading_text = document.createTextNode("Your items: ");
+    heading.appendChild(heading_text);
+    document.body.appendChild(heading);
 }

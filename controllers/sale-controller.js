@@ -1,5 +1,7 @@
 let Sale = require('../models/sales').Sale
 let { User } = require('../models/user')
+let moment = require('moment');
+
 
 exports.saleController = {
 
@@ -155,8 +157,7 @@ exports.saleController = {
     products: async (req, res, next) => {
         try {
             let sales = await Sale.find({})
-            let allSales = sales.map(sale => {
-
+            let allSales = sales.filter(sale => !req.user.sales.includes(sale.id)).map(sale => {
                 return {
                     objectId: sale.id,
                     title: sale.title,
@@ -191,22 +192,16 @@ exports.saleController = {
         }
     },
 
-    // save_cart: async (req, res, next)=>{
-    //     try {
-    //         await Sale.findOne({_id: req.query.id.trim()})
-    //         res.redirect(`/sales/cart`)
-    //     } catch (error) {
-    //         next(error)
-    //     }
-    // },
-
     cart: async (req, res, next) => {
         if(req.isAuthenticated()) {
             try {
-                await Sale.findOne({_id: req.query.id.trim()})
+                let sale = await Sale.findOne({_id: req.query.id.trim()})
                 res.render('sales/cart', {
                     title: 'Cart',
-                    isViewListActive: 'active'
+                    isViewListActive: 'active',
+                    objectId : sale.id,
+                    title: sale.title,
+                    price: sale.price
                 })
             }catch(error){
                 next(error)
@@ -216,6 +211,20 @@ exports.saleController = {
             res.redirect('/users/login')
         }
     },
+
+    order_placed: async (req, res, next) => {
+        if(req.isAuthenticated()) {
+            try {
+                req.flash('success',"Your order was placed at " + moment().format('LLLL'))
+                res.redirect('/')
+            }catch(error){
+                next(error)
+            }
+
+            }
+        }
+
+
 
 
 

@@ -23,6 +23,8 @@
     "http-errors": "~1.6.3",
     "jquery": "^3.5.1",
     "memorystore": "^1.6.4",
+    "moment": "^2.29.1",
+    "momentjs": "^2.0.0",
     "mongoose": "^5.10.13",
     "mongoose-auto-increment": "^5.0.1",
     "mongoose-bignumber": "^1.2.0",
