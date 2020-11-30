@@ -1,39 +1,29 @@
+<div class="container-fluid">
 
-    <div class="container-fluid">
-        <div class="form-group row justify-content-center mb-8">
-            <div class="col-1 col-md-3"></div>
-            <div class="col-9 col-md-4 text-left font-weight-bold">
-                <label class="col-form-label" for="firstName">First Name: </label>{{name.first}}
-            </div>
+    <div class="row justify-content-center">
+        <input type="hidden" name="objectId" value="{{objectId}}"/>
 
+        <div class="col-5 text-left ">
+            <label class="col-form-label font-weight-bold" for="first">First Name:  </label> {{first}}
         </div>
-
-        <div class="form-group row justify-content-center mb-8">
-            <div class="col-1 col-md-3"></div>
-            <div class="col-9 col-md-4 text-left font-weight-bold">
-                <label class="col-form-label" for="lastName">Last Name: </label>{{name.last}}
-            </div>
-
-
-        <div class="form-group row justify-content-center mb-8">
-            <div class="col-1 col-md-3"></div>
-            <div class="col-9 col-md-4 text-left font-weight-bold">
-                <label class="col-form-label" for="password">Password: </label>
-            </div>
-
-        </div>
-
-        <div class="form-group row justify-content-center mb-8">
-            <div class="col-1 col-md-3"></div>
-            <div class="col-9 col-md-4 text-left font-weight-bold">
-                <label class="col-form-label" for="email">Email: </label>{{email}}
-            </div>
-
-        </div>
-
-            <div class="row justify-content-center">
-                <div class="col-5 text-left font-weight-bold">
-                    <span><a class="btn btn-success" role="button" aria-pressed="true" href="/users/edit?id={{ objectId }}"><i data-feather="edit"></i> Edit Product</a></span>
-                </div>
-            </div>
     </div>
+    <div class="row justify-content-center">
+        <div class="col-5 text-left ">
+            <label class="col-form-label font-weight-bold" for="last">Last Name:  </label> {{last}}
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-5 text-left ">
+            <label class="col-form-label font-weight-bold" for="email">Email:  </label> {{email}}
+        </div>
+    </div>
+    <br>
+
+    <div class="row justify-content-center">
+        <div class="col-5 text-left font-weight-bold">
+            <span><a class="btn btn-success" role="button" aria-pressed="true" href="/users/edit?id={{ objectId }}"><i data-feather="edit"></i> Edit Profile</a></span>
+        </div>
+    </div>
+</div>
+
+

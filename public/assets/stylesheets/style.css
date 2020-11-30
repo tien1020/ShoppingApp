@@ -1,21 +1,15 @@
 body {
   font: 14px Late, Helvetica, Arial, sans-serif;
-  background-color: antiquewhite;
+  background-color: #faebd7;
 }
 
 header {
   margin-bottom: 10px;
 }
 
-a {
-  color: mediumblue;
-}
-
-h1, .navbar{
-  color: chocolate;
-  text-align: center;
-}
 h1{
+  color: #ffffff;
+  text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -30,13 +24,30 @@ h1{
   margin-bottom: 10px;
 }
 
-.navbar-text{
-  font-size: x-large;
-  text-align: left;
+.nav-item {
+  list-style-type: none;
 
 }
 
-.navbar-toggler {
-  margin-top: 5px;
-  margin-bottom: 10px;
+.dropdown-menu {
+  left: 0;
+  right: 0;
 }
+
+
+/*.navbar-toggler {*/
+/*  margin-top: 5px;*/
+/*  margin-bottom: 10px;*/
+/*}*/
+
+/*.dropdown-item {*/
+/*  text-align: center;*/
+/*}*/
+
+/*#navbarDropdownMenuLink{*/
+/*  text-align: center;*/
+/*}*/
+
+/*.dropdown-menu {*/
+/*  text-align: center;*/
+/*}*/

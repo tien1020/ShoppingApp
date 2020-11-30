@@ -1,6 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const { registerValidations, userController } = require('../controllers/user-controller')
+const passport = require('passport')
+let User = require('../models/user').User
+
+
+const { registerValidations, editProfileValidations, editPasswordValidations, userController } = require('../controllers/user-controller')
 
 router.get('/register', async (req,res, next) => {
     res.render('users/register', {
@@ -25,6 +29,25 @@ router.post('/login', async(req, res, next)=>{
 router.get('/logout', async(req, res, next)=>{
     req.logout();
     res.redirect('/');
-});
+})
+
+router.get('/profile', async(req, res, next)=>{
+    await userController.view(req,res,next)
+})
+
+router.get('/edit_profile', async(req, res, next)=>{
+    await userController.getEdit(req,res,next)
+})
+
+router.post('/edit_profile', editProfileValidations, async(req, res, next)=>{
+    await userController.edit(req,res, next)
+})
+
+router.get('/password_change', async(req, res, next)=>{
+    await userController.getEditPassword(req,res, next)
+})
+router.post('/password_change', editPasswordValidations, async(req, res, next)=>{
+    await userController.password_change(req,res,next)
+})
 
 module.exports = router

@@ -40,23 +40,115 @@ exports.userController = {
     },
 
     view: async (req, res, next) => {
-        try {
-            const user = await User.findOne({_id: req.query.id.trim()})
-            res.render('sales/view_user', {
-                title: "Profile",
-                objectId: req.query.id,
-                first: user.name.first,
-                last: user.name.last,
-                email: user.email,
-                password: user.password
-            })
+        if(req.isAuthenticated()) {
+            try {
+                const user = await User.findOne({_id: req.user.id.trim()})
+                res.render('users/view_user', {
+                    title: "Profile",
+                    objectId: req.user.id,
+                    first: user.name.first,
+                    last: user.name.last,
+                    email: user.email,
+                })
 
-        }catch (error) {
-            console.log(`Error saving user: ${error.message}`)
-            res.redirect('back')
+            }catch (error) {
+                next(error)
+            }
+        } else {
+            req.flash(`error`,'Please log in to view your Profile')
+            res.redirect('/users/login')
         }
-    }
+    },
+
+    getEdit: async (req, res, next) => {
+
+            try{
+                let user = await User.findOne({_id: req.user.id.trim()})
+                res.render('users/edit_user', {
+                    isCreate: false,
+                    title: "Edit Profile",
+                    objectId: req.user.id,
+                    first: user.name.first,
+                    last: user.name.last,
+                    email: user.email,
+                })
+
+            } catch (error) {
+                next(error)
+            }
+
+    },
+
+    edit: async (req, res, next) => {
+        const errors = validationResult(req)
+        if (!errors.isEmpty()) {
+            req.flash('error', errors.array().map(e => e.msg + '</br>').join(''))
+            res.redirect('back')
+        } else {
+            try {
+                let userParams = getEditUserParams(req.body)
+                let user = await User.findOneAndUpdate({_id: req.user.id}, userParams)
+                req.flash('success', `${user.fullName}'s profile is updated!`)
+                res.redirect('/users/profile')
+            }catch (err) {
+                console.log(`Error updating employee: ${err.message}`)
+                req.flash('error', `Failed to update profile because ${err.message}.`)
+                res.redirect('back')
+            }
+        }
+    },
+    getEditPassword: async (req, res, next)=>{
+            try{
+                let user = await User.findOne({_id: req.user.id.trim()})
+                res.render('users/edit_password', {
+                    isCreate: false,
+                    title: "Edit Password",
+                    objectId: req.user.id,
+                    password: user.password,
+                })
+            } catch (error) {
+                next(error)
+            }
+
+    },
+
+    password_change: async (req, res, next) => {
+        if(req.isAuthenticated()) {
+
+            try{
+                await User.findOne({_id: req.user.id.trim()}, (err, user) => {
+                    if (err)
+                        return next(err)
+                    if(!user){
+                        req.flash('error', 'Failed to login')
+                        res.redirect('back')
+                    } else {
+                        user.changePassword(req.body.oldpassword, req.body.newpassword, function (err) {
+                            if(err) {
+                                req.flash(`error`,'Incorrect Password')
+                                res.redirect('back')
+                            }
+                            else {
+                                req.flash('success', `${user.fullName}'s password is updated!`)
+                                res.redirect('/users/profile')
+                            }
+                        })
+                    }
+                })
+
+            } catch (error) {
+                next(error)
+            }
+        } else {
+            req.flash(`error`,'Please log in to edit Password')
+            res.redirect('/users/login')
+        }
+    },
+
+
+
 }
+
 
 const getUserParams = body => {
     return {
@@ -69,6 +161,27 @@ const getUserParams = body => {
     }
 }
 
+const getEditUserParams = body => {
+    return {
+        name: {
+            first: body.first,
+            last: body.last
+        },
+        email: body.email,
+    }
+}
+
+
+exports.editProfileValidations = [
+    body('first')
+        .notEmpty().withMessage('First name is required')
+        .isLength({min: 2}).withMessage('First name must be at least 2 characters'),
+    body('last')
+        .notEmpty().withMessage('Last name is required')
+        .isLength({min: 2}).withMessage('Last name must be at least 2 characters'),
+    body('email').isEmail().normalizeEmail().withMessage('Email is invalid')
+]
+
 exports.registerValidations = [
     body('first')
         .notEmpty().withMessage('First name is required')
@@ -80,4 +193,10 @@ exports.registerValidations = [
         .notEmpty().withMessage('Password is required')
         .isLength({min: 6}).withMessage('Password must be at least 6 characters'),
     body('email').isEmail().normalizeEmail().withMessage('Email is invalid')
+]
+
+exports.editPasswordValidations = [
+    body('password')
+        .notEmpty().withMessage('Password is required')
+        .isLength({min: 6}).withMessage('Password must be at least 6 characters'),
 ]
