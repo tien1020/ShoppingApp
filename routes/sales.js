@@ -42,9 +42,9 @@ router.get('/view_product', async (req, res, next) => {
 router.get('/cart', async (req, res, next) => {
     await saleController.cart(req, res, next)
 })
-
-router.post('/save_cart', async (req, res, next) => {
-    await saleController.save_cart(req, res, next)
-})
+//
+// router.post('/save_cart', async (req, res, next) => {
+//     await saleController.save_cart(req, res, next)
+// })
 
 module.exports = router;

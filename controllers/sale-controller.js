@@ -48,7 +48,6 @@ exports.saleController = {
                     saleTitle: sale.title,
                     salePrice: sale.price,
                     saleBody: sale.body,
-//                    saleList: allSales,
                     saleCreatorName : saleCreator.fullName
                 })
 
@@ -157,6 +156,7 @@ exports.saleController = {
         try {
             let sales = await Sale.find({})
             let allSales = sales.map(sale => {
+
                 return {
                     objectId: sale.id,
                     title: sale.title,
@@ -191,33 +191,21 @@ exports.saleController = {
         }
     },
 
-    save_cart: async (req, res, next)=>{
-        try {
-            const sale = await Sale.findOne({_id: req.query.id.trim()})
-            req.user = await User.findByIdAndUpdate({_id: req.user.id.trim()},  {sales: req.user.sales}, {new: true})
-
-            res.redirect(`/sales/cart`)
-        } catch (error) {
-            next(error)
-        }
-    },
+    // save_cart: async (req, res, next)=>{
+    //     try {
+    //         await Sale.findOne({_id: req.query.id.trim()})
+    //         res.redirect(`/sales/cart`)
+    //     } catch (error) {
+    //         next(error)
+    //     }
+    // },
 
     cart: async (req, res, next) => {
         if(req.isAuthenticated()) {
             try {
-                let saleIds = req.user.sales
-                let salePromises = saleIds.map(objectId => Sale.findOne({ _id: objectId }))
-                let sales = await Promise.all(salePromises)
-                let allSales = sales.map(sale => {
-                    return {
-                        objectId: sale.id,
-                        title: sale.title,
-                        price: sale.price,
-                    }
-                })
+                await Sale.findOne({_id: req.query.id.trim()})
                 res.render('sales/cart', {
                     title: 'Cart',
-                    saleList: allSales,
                     isViewListActive: 'active'
                 })
             }catch(error){
@@ -229,14 +217,7 @@ exports.saleController = {
         }
     },
 
-    save_cart: async (req, res, next)=>{
-        try {
-            const sale = await Sale.findOne({_id: req.query.id.trim()})
-            res.redirect(`/sales/cart`)
-        } catch (error) {
-            next(error)
-        }
-    },
+
 
 }
 
@@ -253,7 +234,7 @@ create = async (title, price, body, userId) =>{
 
 update = async (id, name, title, price, body)=>{
     id = id.trim()
-    let sale = await Sale.findByIdAndUpdate({ _id: id },{title: title, price: price, body: body}, {new: true})
+    let sale = await Sale.findByIdAndUpdate({ _id: id },{title: title, name: name, price: price, body: body}, {new: true})
     return sale;
 }
 
