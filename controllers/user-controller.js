@@ -61,7 +61,7 @@ exports.userController = {
     },
 
     getEdit: async (req, res, next) => {
-
+        if(req.isAuthenticated()) {
             try{
                 let user = await User.findOne({_id: req.user.id.trim()})
                 res.render('users/edit_user', {
@@ -76,7 +76,10 @@ exports.userController = {
             } catch (error) {
                 next(error)
             }
-
+        } else {
+            req.flash(`error`,'Please log in to edit your Profile')
+            res.redirect('/users/login')
+        }
     },
 
     edit: async (req, res, next) => {

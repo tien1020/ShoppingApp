@@ -31,7 +31,7 @@ exports.saleController = {
                     req.user = await User.findByIdAndUpdate({_id: req.user.id.trim()},  {sales: req.user.sales}, {new: true})
                 } else
                     sale = await update(req.body.objectId, req.body.title, req.body.price, req.body.body)
-                res.redirect(`/sales/view`)
+                res.redirect(`/sales/view?id=${sale.id}`)
             } catch (error) {
                 next(error)
             }
