@@ -35,7 +35,7 @@ router.get('/products', async (req, res, next) => {
     await saleController.products(req, res, next)
 })
 
-router.get('/view_product', async (req, res, next) => {
+router.get('/view', async (req, res, next) => {
     await saleController.view_product(req, res, next)
 })
 

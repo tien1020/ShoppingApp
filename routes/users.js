@@ -35,11 +35,11 @@ router.get('/profile', async(req, res, next)=>{
     await userController.view(req,res,next)
 })
 
-router.get('/edit_profile', async(req, res, next)=>{
+router.get('/edit', async(req, res, next)=>{
     await userController.getEdit(req,res,next)
 })
 
-router.post('/edit_profile', editProfileValidations, async(req, res, next)=>{
+router.post('/edit', editProfileValidations, async(req, res, next)=>{
     await userController.edit(req,res, next)
 })
 
