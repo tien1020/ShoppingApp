@@ -27,7 +27,7 @@ exports.userController = {
             if (err)
                 return next(err)
             if (!user) {
-                req.flash('error', 'Failed to login')
+                req.flash('error', 'Failed to login. Incorrect email or password')
                 return res.redirect('back')
             }
             req.logIn(user, function (err) {
@@ -72,7 +72,6 @@ exports.userController = {
                     last: user.name.last,
                     email: user.email,
                 })
-
             } catch (error) {
                 next(error)
             }
@@ -95,7 +94,7 @@ exports.userController = {
                 res.redirect('/users/profile')
             } catch (err) {
                 console.log(`Error updating employee: ${err.message}`)
-                req.flash('error', `Failed to update profile because ${err.message}.`)
+                req.flash('error', `Failed to update profile. Invalid email.`)
                 res.redirect('back')
             }
         }
@@ -145,7 +144,6 @@ exports.userController = {
             req.flash(`error`, 'Please log in to edit Password')
             res.redirect('/users/login')
         }
-
     },
 }
 
@@ -169,7 +167,6 @@ const getEditUserParams = body => {
         email: body.email,
     }
 }
-
 
 exports.editProfileValidations = [
     body('first')

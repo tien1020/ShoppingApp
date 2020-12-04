@@ -23,7 +23,6 @@ const SaleSchema = new mongoose.Schema({
     }
 })
 
-
 SaleSchema.set('toObject', {getters: true, virtuals: true})
 
 exports.Sale = mongoose.model('sales', SaleSchema)

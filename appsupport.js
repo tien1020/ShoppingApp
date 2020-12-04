@@ -12,7 +12,6 @@ exports.normalizePort = function normalizePort(val) {
     return false;
 }
 
-
 exports.handle404 = function (req,res,next){
     res.status(404).send('<h2>Sorry, Page not found </h2>')
 }
@@ -40,7 +39,6 @@ exports.onError = function (error) {
         ? 'Pipe ' + port
         : 'Port ' + port;
 
-    // handle specific listen errors with friendly messages
     switch (error.code) {
         case 'EACCES':
             console.error(bind + ' requires elevated privileges');

@@ -19,18 +19,17 @@ mongoose.connect(process.env.DB_URL, {
     console.log(err)
 })
 
-
 const appsupport=require('./appsupport')
-const indexRouter = require('./routes/index');
-const salesRouter = require('./routes/sales');
+const indexRouter = require('./routes/index')
+const salesRouter = require('./routes/sales')
 const usersRouter = require('./routes/users')
 
 const app =express()
 exports.app=app
 
 // view engine setup
-app.set('views', path.join( __dirname, 'views'));
-app.set('view engine', 'hbs');  ///knows to use handlebars w/ hbs
+app.set('views', path.join( __dirname, 'views'))
+app.set('view engine', 'hbs')
 app.engine('hbs', hbs(
     {
       extname:'hbs',
@@ -39,12 +38,12 @@ app.engine('hbs', hbs(
       partialsDir: __dirname + '/views/partials/'
     })
 )
-app.use(express.static('public/images'));
-app.use(express.static('public'));
+app.use(express.static('public/images'))
+app.use(express.static('public'))
 
-app.use(logger('dev'));  //deals w/ morgan
+app.use(logger('dev'))
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }))
 app.use(session({
     secret: 'secret_password',
     cookie: { maxAge: 86400000 },
@@ -62,7 +61,7 @@ passport.use(User.createStrategy())
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
-app.use(express.static(path.join(__dirname, 'public')));  ///handles static assets
+app.use(express.static(path.join(__dirname, 'public')))
 app.use('/assets/vendor/bootstrap', express.static(path.join(__dirname, 'node_modules','bootstrap','dist')))
 app.use('/assets/vendor/jquery', express.static(path.join(__dirname,'node_modules','jquery','dist')))
 app.use('/assets/vendor/popper.js', express.static(path.join(__dirname,'node_modules','popper.js','dist', 'umd')))
@@ -75,17 +74,16 @@ app.use((req, res, next)=>{
     next()
 })
 
-
 //router function list
-app.use('/', indexRouter);
-app.use('/sales', salesRouter);
+app.use('/', indexRouter)
+app.use('/sales', salesRouter)
 app.use('/users', usersRouter)
 
 //Error Handlers
-app.use(appsupport.basicErrorHandler)                           // this is a call back because no rounded brackets for basicErrorHandler
+app.use(appsupport.basicErrorHandler)
 app.use(appsupport.handle404)
 
-const port = appsupport.normalizePort(process.env.PORT || '3000');
+const port = appsupport.normalizePort(process.env.PORT || '3000')
 exports.port=port
 app.set('port', port);
 
@@ -95,6 +93,7 @@ app.set('port', port);
 
 const server = http.createServer(app);
 exports.server=server
+
 /**
  * Listen on provided port, on all network interfaces.
  */

@@ -26,7 +26,6 @@ router.get('/destroy', async (req, res, next)=>{
     await saleController.destroy(req, res, next)
 })
 
-
 router.get('/viewAll', async (req, res, next)=> {
     await saleController.viewAll(req, res, next)
 })

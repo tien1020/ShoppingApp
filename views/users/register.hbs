@@ -1,11 +1,10 @@
-<div class="container-fluid mt-2">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <h2>Register</h2>
     </div>
-</div>
-
-<div class="container-fluid m-2">
-    {{>user_messages}}
+    <div class="row justify-content-center">
+        {{>user_messages}}
+    </div>
 </div>
 
 <form method="post" action="/users/register">
@@ -53,7 +52,6 @@
                 <input class="form-control" id="email" type="email" name="email" required><br/>
             </div>
         </div>
-
         <div class="form-group row justify-content-center">
             <input class="btn btn-warning col-2" type="submit" value="Submit"/>
         </div>

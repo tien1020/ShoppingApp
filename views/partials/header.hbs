@@ -1,6 +1,4 @@
 <header>
-
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border">
         <a class="navbar-brand" href="/"><i data-feather="home"></i></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,7 +6,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <span class="navbar-text col text-left">{{title}}</span>
+            <span class="navbar-text col text-left text-white nav-title font-weight-bold">{{title}}</span>
             {{#unless loggedIn}}
             <ul class="navbar-nav ">
                 <li class="nav-item">
@@ -20,14 +18,10 @@
                 <li class="nav-item">
                     <a class=" nav-link text-white btn btn-outline-light col-auto mr-lg-2" href="/sales/view_all_products">Shop</a>
                 </li>
-
                 {{else}}
                 <li class="nav-item">
                     <a class=" nav-link btn btn-outline-light col-auto mr-lg-2" href="/sales/products">Shop</a>
                 </li>
-<!--                <li class="nav-item">-->
-<!--                    <a class=" nav-link btn btn-outline-light col-auto mr-lg-2" href="/sales/cart">Cart</a>-->
-<!--                </li>-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white text-center" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{currentUser.fullName}}
@@ -39,9 +33,8 @@
                         <a class="dropdown-item" href="/users/logout">Logout</a>
                     </div>
                 </li>
-                {{/unless}}
             </ul>
+            {{/unless}}
         </div>
     </nav>
-
 </header>

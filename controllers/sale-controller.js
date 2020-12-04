@@ -2,9 +2,7 @@ let Sale = require('../models/sales').Sale
 let { User } = require('../models/user')
 let moment = require('moment');
 
-
 exports.saleController = {
-
     add: async (req, res, next) => {
         if(req.isAuthenticated()) {
             try {
@@ -52,7 +50,7 @@ exports.saleController = {
                     saleTitle: sale.title,
                     salePrice: sale.price,
                     saleBody: sale.body,
-                    saleCreatorName : saleCreator.fullName
+                    saleCreatorName: saleCreator.fullName
                 })
 
             } catch (error) {
@@ -63,9 +61,6 @@ exports.saleController = {
             res.redirect('/users/login')
         }
     },
-
-
-
 
     edit: async (req, res, next) => {
         if(req.isAuthenticated()) {
@@ -79,7 +74,6 @@ exports.saleController = {
                     salePrice: sale.price,
                     saleBody: sale.body
                 })
-
             } catch (error) {
                 next(error)
             }
@@ -108,7 +102,6 @@ exports.saleController = {
             res.redirect('/users/login')
         }
     },
-
 
     destroy : async (req, res, next) => {
         if(req.isAuthenticated()) {
@@ -139,7 +132,6 @@ exports.saleController = {
                         objectId: sale.id,
                         title: sale.title,
                         price: sale.price,
-                        // name: req.user.fullName
                     }
                 })
                 res.render('sales/view_list', {
@@ -181,7 +173,6 @@ exports.saleController = {
     },
 
     view_product: async (req, res, next) => {
-
         if(req.isAuthenticated()) {
             try {
                 const sale = await Sale.findOne({_id: req.query.id.trim()})
@@ -209,7 +200,6 @@ exports.saleController = {
             try {
                 let sales = await Sale.find({}).sort({price: 1})
                 let allSales = sales.filter(sale => !req.user.sales.includes(sale.id)).map(sale => {
-
                     return {
                         objectId: sale.id,
                         title: sale.title,
@@ -279,7 +269,6 @@ exports.saleController = {
             try {
                 let sales = await Sale.find({}).sort({price: 1})
                 let allSales = sales.map(sale => {
-
                     return {
                         objectId: sale.id,
                         title: sale.title,
@@ -343,14 +332,8 @@ exports.saleController = {
             }catch(error){
                 next(error)
             }
-
-            }
         }
-
-
-
-
-
+    }
 }
 
 create = async (title, price, body, userId) =>{
@@ -364,9 +347,9 @@ create = async (title, price, body, userId) =>{
     return sale;
 }
 
-update = async (id, name, title, price, body)=>{
+update = async (id, title, price, body)=>{
     id = id.trim()
-    let sale = await Sale.findByIdAndUpdate({ _id: id },{title: title, name: name, price: price, body: body}, {new: true})
+    let sale = await Sale.findByIdAndUpdate({ _id: id },{title: title, price: price, body: body}, {new: true})
     return sale;
 }
 
