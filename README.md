@@ -1,6 +1,7 @@
 # neiu-cs-412
 ## 1. Application name: 
 Sallie Shoppie
+https://sallie-shoppe.herokuapp.com/
 
 ## 2. Project Topic/Objective:  
 This is an e-commerce website for online shopping. Customers need to sign-up by entering their information (name, shipping address, card payment, email, phone number). We offer variety of products such as clothes and home decorations. Users can pick the products they would like to buy, put them in the cart and then place an order. Salies Shopper will send notifications to users when the website have promotions. 
