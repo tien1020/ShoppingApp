@@ -90,7 +90,7 @@ exports.userController = {
             try {
                 let userParams = getEditUserParams(req.body)
                 let user = await User.findOneAndUpdate({_id: req.user.id}, userParams)
-                req.flash('success', `${user.fullName}'s profile is updated!`)
+                req.flash('success',  "Profile is updated!")
                 res.redirect('/users/profile')
             } catch (err) {
                 console.log(`Error updating employee: ${err.message}`)
