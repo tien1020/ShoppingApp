@@ -40,7 +40,7 @@ exports.userController = {
     },
 
     view: async (req, res, next) => {
-        if(req.isAuthenticated()) {
+        if (req.isAuthenticated()) {
             try {
                 const user = await User.findOne({_id: req.user.id.trim()})
                 res.render('users/view_user', {
@@ -51,18 +51,18 @@ exports.userController = {
                     email: user.email,
                 })
 
-            }catch (error) {
+            } catch (error) {
                 next(error)
             }
         } else {
-            req.flash(`error`,'Please log in to view your Profile')
+            req.flash(`error`, 'Please log in to view your Profile')
             res.redirect('/users/login')
         }
     },
 
     getEdit: async (req, res, next) => {
-        if(req.isAuthenticated()) {
-            try{
+        if (req.isAuthenticated()) {
+            try {
                 let user = await User.findOne({_id: req.user.id.trim()})
                 res.render('users/edit_user', {
                     isCreate: false,
@@ -77,7 +77,7 @@ exports.userController = {
                 next(error)
             }
         } else {
-            req.flash(`error`,'Please log in to edit your Profile')
+            req.flash(`error`, 'Please log in to edit your Profile')
             res.redirect('/users/login')
         }
     },
@@ -93,15 +93,16 @@ exports.userController = {
                 let user = await User.findOneAndUpdate({_id: req.user.id}, userParams)
                 req.flash('success', `${user.fullName}'s profile is updated!`)
                 res.redirect('/users/profile')
-            }catch (err) {
+            } catch (err) {
                 console.log(`Error updating employee: ${err.message}`)
                 req.flash('error', `Failed to update profile because ${err.message}.`)
                 res.redirect('back')
             }
         }
     },
-    getEditPassword: async (req, res, next)=>{
-            try{
+    getEditPassword: async (req, res, next) => {
+        if (req.isAuthenticated()) {
+            try {
                 let user = await User.findOne({_id: req.user.id.trim()})
                 res.render('users/edit_password', {
                     isCreate: false,
@@ -112,46 +113,41 @@ exports.userController = {
             } catch (error) {
                 next(error)
             }
-
-    },
-
-    password_change: async (req, res, next) => {
-        if(req.isAuthenticated()) {
-
-            try{
-                await User.findOne({_id: req.user.id.trim()}, (err, user) => {
-                    if (err)
-                        return next(err)
-                    if(!user){
-                        req.flash('error', 'Failed to login')
-                        res.redirect('back')
-                    } else {
-                        user.changePassword(req.body.oldpassword, req.body.newpassword, function (err) {
-                            if(err) {
-                                req.flash(`error`,'Incorrect Password')
-                                res.redirect('back')
-                            }
-                            else {
-                                req.flash('success', `${user.fullName}'s password is updated!`)
-                                res.redirect('/users/profile')
-                            }
-                        })
-                    }
-                })
-
-            } catch (error) {
-                next(error)
-            }
         } else {
-            req.flash(`error`,'Please log in to edit Password')
+            req.flash(`error`, 'Please log in to change your password')
             res.redirect('/users/login')
         }
     },
 
+    password_change: async (req, res, next) => {
+        if (req.isAuthenticated()) {
+            await User.findOne({_id: req.user.id.trim()}, (err, user) => {
+                if (err)
+                    return next(err)
+                if (!user) {
+                    req.flash('error', 'failed to login')
+                    return res.redirect('back')
+                } else {
+                    user.changePassword(req.body.oldpassword, req.body.newpassword, function (err) {
+                        if (err) {
+                            if (err.name === "IncorrectPasswordError") {
+                                req.flash(`error`, 'Incorrect Password')
+                                res.redirect('back')
+                            }
+                        } else {
+                            req.flash('success', `${user.fullName}'s password is updated!`)
+                            res.redirect('/users/profile')
+                        }
+                    })
+                }
+            })
+        } else {
+            req.flash(`error`, 'Please log in to edit Password')
+            res.redirect('/users/login')
+        }
 
-
+    },
 }
-
 
 const getUserParams = body => {
     return {

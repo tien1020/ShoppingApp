@@ -35,8 +35,28 @@ router.get('/products', async (req, res, next) => {
     await saleController.products(req, res, next)
 })
 
+router.get('/ascending', async (req, res, next) => {
+    await saleController.ascending(req, res, next)
+})
+
+router.get('/descending', async (req, res, next) => {
+    await saleController.descending(req, res, next)
+})
+
 router.get('/view_product', async (req, res, next) => {
     await saleController.view_product(req, res, next)
+})
+
+router.get('/view_all_products', async (req, res, next) => {
+    await saleController.view_all_products(req, res, next)
+})
+
+router.get('/ascending_all', async (req, res, next) => {
+    await saleController.ascending_all(req, res, next)
+})
+
+router.get('/descending_all', async (req, res, next) => {
+    await saleController.descending_all(req, res, next)
 })
 
 router.get('/cart', async (req, res, next) => {
@@ -46,9 +66,5 @@ router.get('/cart', async (req, res, next) => {
 router.get('/order_placed', async (req, res, next) => {
     await saleController.order_placed(req, res, next)
 })
-
-// router.post('/save_cart', async (req, res, next) => {
-//     await saleController.save_cart(req, res, next)
-// })
 
 module.exports = router;

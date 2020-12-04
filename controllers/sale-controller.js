@@ -7,13 +7,11 @@ exports.saleController = {
 
     add: async (req, res, next) => {
         if(req.isAuthenticated()) {
-
             try {
                 res.render('sales/add_sale', {
                     isCreate: true,
                     title: 'Add an Item',
                     isAddSaleActive: 'active'
-
                 })
             } catch (error) {
                 next(error)
@@ -24,7 +22,7 @@ exports.saleController = {
         }
     },
     save: async (req, res, next)=>{
-
+        if(req.isAuthenticated()) {
             try {
                 let sale
                 if (req.body.saveMethod === 'create') {
@@ -37,6 +35,10 @@ exports.saleController = {
             } catch (error) {
                 next(error)
             }
+        } else {
+            req.flash(`error`,'Please log in to access Listings')
+            res.redirect('/users/login')
+        }
     },
 
     view: async (req, res, next) => {
@@ -155,41 +157,162 @@ exports.saleController = {
     },
 
     products: async (req, res, next) => {
+        if(req.isAuthenticated()) {
+            try {
+                let sales = await Sale.find({})
+                let allSales = sales.filter(sale => !req.user.sales.includes(sale.id)).map(sale => {
+                    return {
+                        objectId: sale.id,
+                        title: sale.title,
+                        price: sale.price,
+                    }
+                })
+                res.render('sales/products', {
+                    title: 'Shop',
+                    saleList: allSales,
+                })
+            } catch (error) {
+                next(error)
+            }
+        } else {
+            req.flash(`error`,'Please log in to view products')
+            res.redirect('/users/login')
+        }
+    },
+
+    view_product: async (req, res, next) => {
+
+        if(req.isAuthenticated()) {
+            try {
+                const sale = await Sale.findOne({_id: req.query.id.trim()})
+                const saleCreator = await User.findOne({_id: sale.userId})
+                res.render('sales/view_product', {
+                    title: "Product",
+                    objectId: req.query.id,
+                    saleTitle: sale.title,
+                    salePrice: sale.price,
+                    saleBody: sale.body,
+                    saleCreatorName: saleCreator.fullName
+                })
+
+            } catch (error) {
+                next(error)
+            }
+        } else {
+            req.flash(`error`,'Please log in to access Listings')
+            res.redirect('/users/login')
+        }
+    },
+
+    ascending: async (req, res, next) => {
+        if(req.isAuthenticated()) {
+            try {
+                let sales = await Sale.find({}).sort({price: 1})
+                let allSales = sales.filter(sale => !req.user.sales.includes(sale.id)).map(sale => {
+
+                    return {
+                        objectId: sale.id,
+                        title: sale.title,
+                        price: sale.price,
+                    }
+                })
+                res.render('sales/ascending', {
+                    title: 'Shop',
+                    saleList: allSales,
+                })
+            } catch (error) {
+                next(error)
+            }
+        } else {
+            req.flash(`error`,'Please log in to access Listings')
+            res.redirect('/users/login')
+        }
+    },
+
+    descending: async (req, res, next) => {
+        if(req.isAuthenticated()) {
+            try {
+                let sales = await Sale.find({}).sort({price: -1})
+                let allSales = sales.filter(sale => !req.user.sales.includes(sale.id)).map(sale => {
+
+                    return {
+                        objectId: sale.id,
+                        title: sale.title,
+                        price: sale.price,
+                    }
+                })
+                res.render('sales/descending', {
+                    title: 'Shop',
+                    saleList: allSales,
+                })
+            } catch (error) {
+                next(error)
+            }
+        } else {
+            req.flash(`error`,'Please log in to access Listings')
+            res.redirect('/users/login')
+        }
+    },
+
+    view_all_products: async (req, res, next) => {
         try {
             let sales = await Sale.find({})
-            let allSales = sales.filter(sale => !req.user.sales.includes(sale.id)).map(sale => {
+            let allSales = sales.map(sale => {
                 return {
                     objectId: sale.id,
                     title: sale.title,
                     price: sale.price,
                 }
             })
-            res.render('sales/products', {
+            res.render('sales/view_all_products', {
                 title: 'Shop',
                 saleList: allSales,
                 isViewListActive: 'active'
+
             })
         } catch (error) {
             next(error)
         }
     },
 
-    view_product: async (req, res, next) => {
-        try {
-            const sale = await Sale.findOne({_id: req.query.id.trim()})
-            const saleCreator = await User.findOne({_id: sale.userId})
-            res.render('sales/view_product', {
-                title: "Product",
-                objectId: req.query.id,
-                saleTitle: sale.title,
-                salePrice: sale.price,
-                saleBody: sale.body,
-                saleCreatorName: saleCreator.fullName
-            })
+    ascending_all: async (req, res, next) => {
+            try {
+                let sales = await Sale.find({}).sort({price: 1})
+                let allSales = sales.map(sale => {
 
-        } catch (error) {
-            next(error)
-        }
+                    return {
+                        objectId: sale.id,
+                        title: sale.title,
+                        price: sale.price,
+                    }
+                })
+                res.render('sales/ascending_all', {
+                    title: 'Shop',
+                    saleList: allSales,
+                })
+            } catch (error) {
+                next(error)
+            }
+    },
+
+    descending_all: async (req, res, next) => {
+            try {
+                let sales = await Sale.find({}).sort({price: -1})
+                let allSales = sales.map(sale => {
+
+                    return {
+                        objectId: sale.id,
+                        title: sale.title,
+                        price: sale.price,
+                    }
+                })
+                res.render('sales/descending_all', {
+                    title: 'Shop',
+                    saleList: allSales,
+                })
+            } catch (error) {
+                next(error)
+            }
     },
 
     cart: async (req, res, next) => {
