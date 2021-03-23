@@ -1,4 +1,4 @@
-# neiu-cs-412
+
 ## 1. Application name: 
 Sallie Shoppie
 https://sallie-shoppe.herokuapp.com/
